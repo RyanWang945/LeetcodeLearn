@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
  */
 public class MyHeap {
     /**
-     *
+     * 堆一共需要这几个函数
+     * heapify，build_heap，swap，heap_sort
      * @param nums 需要排序的完全二叉树数组
      * @param i 需要堆化（heapify）的节点的索引
      */

@@ -7,14 +7,15 @@ package leetcode;
 public class _633TowSquareSum {
     public boolean judgeSquareSum(int c) {
         int index2=(int)Math.sqrt(c);
-        int index1=1;
+        int index1=0;
         while(index1<index2){
-            if((index1*index1+index2*index2)>c)
-                index2--;
-            else if((index1*index1+index2*index2)<c)
-                index1++;
-            if((index1*index1+index2*index2)==c)
+            int sum=index1*index1+index2*index2;
+            if(sum==c)
                 return true;
+            else if(sum>c)
+                index2--;
+            else if(sum<c)
+                index1++;
         }
         return false;
     }
