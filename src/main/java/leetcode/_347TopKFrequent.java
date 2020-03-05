@@ -37,22 +37,18 @@ public class _347TopKFrequent {
             frequencyForNum.put(num, frequencyForNum.getOrDefault(num, 0) + 1);
         }
         List<Integer>[] buckets = new ArrayList[nums.length + 1];
-        int[] hash=new int[nums.length+1];
-        for(int i=0;i<nums.length;i++){
-            hash[i]=0;
-        }
+
         //frequencyForNum.keySet()返回一个由这个Map的key组成的Set。
         for (int key : frequencyForNum.keySet()) {
             int frequency = frequencyForNum.get(key);
             if (buckets[frequency] == null) {
                 buckets[frequency] = new ArrayList<>();
-                hash[frequency]=1;
             }
             buckets[frequency].add(key);
         }
         List<Integer> topK = new ArrayList<>();
         for (int i = buckets.length - 1; i >= 0 && topK.size() < k; i--) {
-            if (hash[i] == 1) {
+            if (buckets[i] !=null) {
                 if (buckets[i].size() <= (k - topK.size())) {
                     topK.addAll(buckets[i]);
                 } else {
