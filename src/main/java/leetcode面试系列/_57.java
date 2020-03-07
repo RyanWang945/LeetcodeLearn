@@ -17,12 +17,14 @@ public class _57 {
         int last=(int)(-0.5f+Math.sqrt(0.25f+4*target/2));
         while((last-start+1)>=2){
             int sum=(start+last)*(last-start+1)/2;
-            if(sum==start){
+            if(sum==target){
+                int index=start;
                 int[] a=new int[last-start+1];
-                for(int i=start;i<=last;i++){
-                    a[i]=i;
+                for(int i=0;i<last-start+1;i++){
+                    a[i]=index++;
                 }
                 ans.add(a);
+                start++;
             }
             if(sum<target){
                 last++;

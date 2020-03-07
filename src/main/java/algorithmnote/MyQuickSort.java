@@ -12,7 +12,7 @@ public class MyQuickSort {
         while(left<right){
             while(left<right&&temp<nums[right]) right--;
             nums[left]=nums[right];
-            while(left<right&&temp>=nums[left])left++;
+            while(left<right&&temp>=nums[left]) left++;
             nums[right]=nums[left];
         }
         nums[left]=temp;

@@ -42,6 +42,21 @@ public class _102levelOrder {
      * @return
      */
     List<List<Integer>> levels=new ArrayList<>();
+//    public void helper(TreeNode node,int level){
+//        if(levels.size()==level)
+//            levels.add(new ArrayList<Integer>());
+//        levels.get(level).add(node.val);
+//        if(node.left!=null)
+//            helper(node.left,level+1);
+//        if(node.right!=null)
+//            helper(node.right,level+1);
+//    }
+    public List<List<Integer>> levelOrder2(TreeNode root){
+        if(root==null)
+            return levels;
+        helper(root, 0);
+        return levels;
+    }
     public void helper(TreeNode node,int level){
         if(levels.size()==level)
             levels.add(new ArrayList<Integer>());
@@ -51,10 +66,10 @@ public class _102levelOrder {
         if(node.right!=null)
             helper(node.right,level+1);
     }
-    public List<List<Integer>> levelOrder2(TreeNode root){
-        if(root==null)
+    public List<List<Integer>> levelOrder3(TreeNode root){
+        if (root==null)
             return levels;
-        helper(root, 0);
+        helper(root,0);
         return levels;
     }
 }
