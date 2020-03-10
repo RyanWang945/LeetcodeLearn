@@ -1,6 +1,5 @@
 package leetcode;
 
-import javafx.scene.control.SpinnerValueFactory;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -23,12 +22,15 @@ import java.util.Queue;
 public class _101isSymmetric {
     public boolean isSymmetric(TreeNode root) {
         Queue<TreeNode> queue=new LinkedList<>();
+        if(root==null)
+            return true;
         queue.add(root);
         queue.add(root);
         while(!queue.isEmpty()){
             TreeNode t1=queue.poll();
             TreeNode t2=queue.poll();
-            if(t1==null&&t2==null) continue;
+            if(t1==null&&t2==null)
+                break;
             if(t1==null||t2==null) return false;
             if(t1.val!=t2.val) return false;
             queue.add(t1.left);

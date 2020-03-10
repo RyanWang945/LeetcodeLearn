@@ -1,5 +1,7 @@
 package leetcode;
 
+import model.Student;
+
 /**
  * @author Ryan
  * @date 2020/3/6 10:29
