@@ -1,5 +1,10 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @author Ryan
  * @date 2020/3/10 10:27
@@ -23,5 +28,14 @@ public class _112hasPathSum {
             dfs(node.left,s+node.val,sum);
             dfs(node.right,s+node.val,sum);
         }
+    }
+
+    public static void main(String[] args) {
+//        Set<Integer> set=new HashSet<>();
+//        set.add(2);
+//        set.contains()
+//        List<Integer> list=new ArrayList<>();
+//        list.add(2);
+//        list.remove()
     }
 }
