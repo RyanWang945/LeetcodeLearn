@@ -43,4 +43,28 @@ public class _94inorderTraversal {
         }
         return ans;
     }
+
+    /**
+     * 再写一遍迭代法
+     * @param root
+     * @return
+     * 暂时指针，存储左子节点，退出栈顶访问右子节点，在循环访问左节点。
+     */
+    public List<Integer> inorderTraversal3(TreeNode root){
+        List<Integer> res=new ArrayList<>();
+        if(root==null)
+            return res;
+        TreeNode curr=root;
+        Stack<TreeNode> stack=new Stack<>();
+        while(!stack.isEmpty()||curr!=null){
+            while(curr!=null){
+                stack.push(curr);
+                curr=curr.left;
+            }
+            TreeNode node = stack.pop();
+            res.add(node.val);
+            curr=node.right;
+        }
+        return res;
+    }
 }

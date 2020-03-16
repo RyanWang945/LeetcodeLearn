@@ -1,5 +1,7 @@
 package leetcode;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,6 +36,17 @@ public class _102levelOrder {
             ans.add(list);
         }
         return ans;
+    }
+    @Test
+    public void test(){
+        TreeNode root=new TreeNode(1);
+        root.left=new TreeNode(2);
+        root.right=new TreeNode(3);
+        root.left.left=new TreeNode(4);
+        for(List<Integer> list:levelOrder(root)){
+            for(int i:list)
+                System.out.println(i);
+        }
     }
 
     /**

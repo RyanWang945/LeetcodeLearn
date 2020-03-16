@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Ryan
  * @date 2019/12/25 15:47
@@ -25,5 +28,37 @@ public class _1twosum {
             }
         }
         throw new IllegalArgumentException("no such value");
+    }
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],i);
+        }
+        for(int i=0;i<nums.length;i++){
+            int temp=target-nums[i];
+            if(map.containsKey(temp)&&map.get(temp)!=i)
+                return new int[]{i,map.get(temp)};
+        }
+        throw new IllegalArgumentException("no such solution");
+    }
+
+    public static void main(String[] args) {
+        Map<Integer,Integer> map=new HashMap<>();
+        map.put(3,0);
+        map.put(3,1);
+        map.put(3,2);
+        map.put(2,3);
+        map.put(2,4);
+        map.put(2,5);
+        map.put(2,6);
+        System.out.println(map.get(3));
+        System.out.println(map.get(3));
+        System.out.println(map.get(3));
+        System.out.println(map.get(2));
+        System.out.println(map.get(2));
+        System.out.println(map.get(2));
+        System.out.println(map.get(2));
+        System.out.println(map.get(2));
+        System.out.println(map.get(2));
     }
 }

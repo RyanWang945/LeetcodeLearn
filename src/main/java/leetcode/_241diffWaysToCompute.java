@@ -9,7 +9,7 @@ import java.util.List;
  * @author Ryan
  * @date 2020/3/3 20:59
  */
-public class _241 {
+public class _241diffWaysToCompute {
 //    public List<Integer> diffWaysToCompute(String input){
 //        if(input.length()==0){
 //            return new ArrayList<>();
