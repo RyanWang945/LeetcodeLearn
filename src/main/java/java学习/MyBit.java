@@ -1,4 +1,4 @@
-package java编程思想;
+package java学习;
 
 /**
  * @author Ryan
