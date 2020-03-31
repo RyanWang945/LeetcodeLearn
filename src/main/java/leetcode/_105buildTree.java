@@ -27,6 +27,5 @@ public class _105buildTree {
             }
         }
         return root;
-
     }
 }

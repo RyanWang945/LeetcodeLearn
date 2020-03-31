@@ -35,4 +35,10 @@ public class _46v2 {
             }
         }
     }
+
+    public static void main(String[] args) {
+        boolean[] hashtable=new boolean[3];
+        for(boolean i:hashtable)
+            System.out.println(i);
+    }
 }

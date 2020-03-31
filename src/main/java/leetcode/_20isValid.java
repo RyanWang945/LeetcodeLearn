@@ -38,4 +38,7 @@ public class _20isValid {
             return b==']';
         return false;
     }
+
+    public static void main(String[] args) {
+    }
 }

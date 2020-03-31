@@ -1,5 +1,7 @@
 package leetcode;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,3 +54,24 @@ class Solution {
         System.out.println(lists);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

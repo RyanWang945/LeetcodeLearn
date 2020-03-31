@@ -1,5 +1,9 @@
 package java学习;
 
+import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+
 /**
  * @author Ryan
  * @date 2020/1/1 20:52
@@ -22,5 +26,11 @@ public class MyBit {
      * 115601,234200,197700,159300
      * 246000,168500,148000,186201
      */
+    @Test
+    public void test(){
+        BigDecimal a=BigDecimal.valueOf(0.1);
+        BigDecimal b=BigDecimal.valueOf(0.2);
+        System.out.println(a.add(b));
+    }
 
 }
