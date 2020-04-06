@@ -54,9 +54,7 @@ public class _347TopKFrequent {
                 } else {
                     topK.addAll(buckets[i].subList(0, k - topK.size()));
                 }
-            }else
-                continue;
-
+            }
         }
         return topK;
     }

@@ -1,6 +1,5 @@
 package leetcode;
 
-import org.junit.jupiter.api.Test;
 
 /**
  * @author Ryan

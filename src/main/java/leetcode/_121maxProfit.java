@@ -62,4 +62,20 @@ public class _121maxProfit {
         }
         return res;
     }
+    /**
+     * 二维dp超出内存限制
+     */
+    public int maxProfit4(int[] prices) {
+        int n=prices.length;
+        int[][]dp=new int[n][n];
+        int res=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(j<=i)
+                    continue;
+                res=Math.max(res,prices[j]-prices[i]);
+            }
+        }
+        return res;
+    }
 }

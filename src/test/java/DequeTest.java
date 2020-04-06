@@ -3,9 +3,7 @@ import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author Ryan
@@ -39,5 +37,20 @@ public class DequeTest {
         String a="aello";
         String b="hell";
         System.out.println(a.compareTo(b));
+
+    }
+    @Test
+    public void test4(){
+        String s="1000";
+        char[] chs=s.toCharArray();
+        int len=s.length()-1;
+        List<Character> list=new ArrayList<>();
+        for(int i=len;i>=0;i--){
+            list.add(chs[i]);
+        }
+        for(Character i:list){
+            System.out.println(i);
+        }
+        System.out.println(list.get(0)=='1');
     }
 }

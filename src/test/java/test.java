@@ -131,5 +131,18 @@ public class test {
         Integer a=0b0001;
         Integer b=0b0011;
         System.out.println(a&b);
+        List<Integer> temp=new ArrayList<>();
+
+    }
+    @Test
+    public void test2(){
+        ArrayList<Integer> list=new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.remove(2);
+        StringBuilder sb=new StringBuilder();
+        sb.append('c');
+        System.out.println((int) '1' -'0');
     }
 }
