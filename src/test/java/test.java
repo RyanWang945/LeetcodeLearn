@@ -137,12 +137,13 @@ public class test {
     @Test
     public void test2(){
         ArrayList<Integer> list=new ArrayList<>();
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.remove(2);
-        StringBuilder sb=new StringBuilder();
-        sb.append('c');
-        System.out.println((int) '1' -'0');
+        int[] a=new int[0];
+        Arrays.copyOfRange(a,0,2);
+        Properties properties = System.getProperties();
+        for(Object o:properties.keySet()){
+            System.out.print(o);
+            System.out.print(" ：");
+            System.out.println(properties.get(o));
+        }
     }
 }

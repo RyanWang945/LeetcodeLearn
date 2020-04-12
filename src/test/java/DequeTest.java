@@ -52,5 +52,20 @@ public class DequeTest {
             System.out.println(i);
         }
         System.out.println(list.get(0)=='1');
+        Map<Integer,Integer> map=new HashMap<>();
+        Stack<Integer> a=new Stack<>();
+        int n= (int) 1e+7;
+        Stack<Integer> stack=new Stack<>();
+        stack.peek();
+    }
+    @Test
+    public void test5(){
+        boolean flag=false;
+        for(int i=0;i<1000;i++){
+            int a=(int) (Math.random() * 3);
+            if(a==3)
+                flag=true;
+        }
+        System.out.println(flag);
     }
 }
