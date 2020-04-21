@@ -22,7 +22,7 @@ public class _133 {
                     map.put(i,new Node(i.val,new ArrayList<>()));
                     queue.add(i);
                 }
-                map.get(n).neighbors.add(map.get(i));
+                map.get(n).neighbors.add(map.get(i));//当前克隆节点的克隆孩子需要把当前克隆节点加进去，因为queue不回头
             }
         }
         return map.get(node);

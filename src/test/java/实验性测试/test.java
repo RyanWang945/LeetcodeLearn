@@ -1,8 +1,12 @@
 package 实验性测试;
 
-import algorithmnote.*;
-import 刷题.leetcode._1twosum;
+import algorithmnote.Bobblesort;
+import algorithmnote.InsertSort;
+import algorithmnote.PATB1001;
+import algorithmnote.ShellSort;
 import org.junit.Test;
+import 刷题.leetcode._1twosum;
+import 子类父类测试.Car;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -146,14 +150,184 @@ public class test {
      * 这个函数很有趣，就是一个深搜嘛。
      * @param dir
      */
-    public static void listAllFiles(File dir){
-        if(dir==null||!dir.exists())
+    public static void listAllFiles(File dir) {
+        if (dir == null || !dir.exists())
             return;
-        if(dir.isFile()){
+        if (dir.isFile()) {
             System.out.println(dir.getName());
             return;
         }
-        for(File file:dir.listFiles())
+        for (File file : dir.listFiles())
             listAllFiles(file);
     }
+
+    @Test
+    public void testArrayToString() {
+        int[] a = new int[3];
+        alter(a);
+        System.out.println(a[0]);
+    }
+
+    private void alter(int[] a) {
+        a[0] = 2;
+    }
+
+    @Test
+    public void testArrayList() {
+        Integer[] a = new Integer[]{1, 2, 3};
+        Integer[] integers = a;
+        for (int i : integers) {
+            System.out.println(i);
+        }
+        System.out.println("----------------");
+        List<Integer> list = new ArrayList<>(100);
+        for (int i = 0; i < 20; i++) {
+            list.add(i);
+        }
+        list.add(3);
+        System.out.println(list.indexOf(3));
+        System.out.println(list.indexOf(2));
+        System.out.println("---------------");
+        List<Integer[]> list2 = new ArrayList<>();
+        Integer[] s = new Integer[2];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                Integer[] ints = new Integer[2];
+                ints[0] = i;
+                ints[1] = j;
+            }
+        }
+        System.out.println(list2.indexOf(new Integer[]{1, 3}));
+    }
+
+    @Test
+    /**
+     * 测试ArrayList下的toArray函数，看Object数组是否能转换为原本的类型（经历了向上转型后
+     * 能否向下转型）
+     * 经过测试，是可以的，并且可以用一种很过分的语法（尽管逻辑上很正常）向下转型
+     * Car[] cars=(Car[]) objects;
+     */
+    public void testArrayList_toArray() {
+        List<Car> list = new ArrayList<>();
+        list.add(new Car());
+        list.add(new Car());
+        Object[] objects = list.toArray();
+        Car[] cars = (Car[]) objects;
+        for (Object c : objects) {
+            Car newc = (Car) c;
+            ((Car) c).sayHello();
+        }
+        /**
+         * 再测试一下数组可行否
+         */
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            list2.add(i);
+        }
+        Object[] objects1 = list.toArray();
+        Integer[] newint = (Integer[]) objects1;
+        Car c = new Car();
+    }
+    @Test
+    public void testMathabs(){
+        System.out.println(Math.abs(-2147483648));
+    }
+    @Test
+    public void testFenwickTree(){
+        int[] arr=new int[21];
+        for(int i=0;i<arr.length;i++){
+            update(arr,i+1,1);
+        }
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]);
+            System.out.print(" ");
+        }
+    }
+    private void update(int[] bit,int i,int val){
+        while(i<bit.length){
+            bit[i]+=val;
+            i+=i&(-i);
+        }
+    }
+    int getSum(int[] bit,int i) {
+        int sum = 0;
+        while (i > 0) {
+            sum += bit[i];
+            i -= i & (-i);
+        }
+        return sum;
+    }
+    @Test
+    public void testchar(){
+        int a='.'-'0';
+        System.out.println(a);
+        Map<String,List<String>> map=new HashMap<>();
+    }
+
+    @Test
+    public void testSort(){
+        List<Pair> list=new ArrayList<>();
+        list.add(new Pair(0,new int[]{2,11,3}));
+        list.add(new Pair(1,new int[]{15,10,7}));
+        list.add(new Pair(2,new int[]{9,17,12}));
+        list.add(new Pair(3,new int[]{8,1,14}));
+        Collections.sort(list);
+        for(Pair p:list){
+            System.out.println(p);
+        }
+    }
+    @Test
+    public void testListSort(){
+        List<List<String>> orders=new ArrayList<>();
+
+        Collections.sort(orders, new Comparator<List<String>>() {
+            @Override
+            public int compare(List<String> o1, List<String> o2) {
+                return Integer.valueOf(o1.get(1))-Integer.valueOf(o2.get(1));
+            }
+        });
+        String a="abc";
+        String b="cbc";
+        System.out.println(a.compareTo(b));
+        System.out.println("aa"=="aa");
+    }
+    @Test
+    public void testSplit(){
+        String s="dog cat cat dog";
+        String[] s1 = s.split(" ");
+        for(String a:s1){
+            System.out.println(a);
+        }
+        char c='a';
+        String cs=String.valueOf(c);
+    }
 }
+class Pair implements Comparable{
+    int i;
+    int[] r;
+    Pair(int i,int[] r){
+        this.i=i;
+        this.r=r;
+    }
+
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "i=" + i +
+                ", r=" + Arrays.toString(r) +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Pair obj=(Pair)o;
+        if(this.r[0]!=obj.r[0])
+            return this.r[0]-obj.r[0];
+        else if(this.r[1]!=obj.r[1])
+            return this.r[1]-obj.r[1];
+        else
+            return this.r[2]-obj.r[2];
+    }
+
+}
+

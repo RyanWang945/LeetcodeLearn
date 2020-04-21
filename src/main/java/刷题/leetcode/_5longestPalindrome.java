@@ -71,6 +71,10 @@ public class _5longestPalindrome {
         System.out.println(matrix[1][1]);
         String a="aa";
     }
+
+    /**
+     * 时间复杂度O（n^2）,空间复杂度O(1)
+     */
     public String longestPalindrome2(String s) {
         if (s.equals(""))
             return "";
@@ -101,5 +105,34 @@ public class _5longestPalindrome {
                 }
             }
         return s.substring(maxEnd - maxLen + 1, maxEnd + 1);
+    }
+
+    /**
+     * 中心扩散法，这种效率比动态规划高特别多，时间复杂度O（n^2）,空间复杂度O(1)
+     * @param s
+     * @return
+     */
+    public String longestPalindrome3(String s) {
+        if(s==null||s.length()<1) return "";
+        int start=0,end=0;
+        int n=s.length();
+        for(int i=0;i<n;i++){
+            int len1=helper(s,i,i);
+            int len2=helper(s,i,i+1);
+            int len=Math.max(len1,len2);
+            if(len>end-start){
+                start=i-(len-1)/2;
+                end=i+len/2;
+            }
+        }
+        return s.substring(start,end+1);
+    }
+    private int helper(String s,int left,int right){
+        int L=left,R=right;
+        while(L>=0&&R<s.length()&&s.charAt(L)==s.charAt(R)){
+            L--;
+            R++;
+        }
+        return R-L-1;
     }
 }
