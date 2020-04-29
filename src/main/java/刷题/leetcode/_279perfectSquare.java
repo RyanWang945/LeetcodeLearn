@@ -32,7 +32,7 @@ public class _279perfectSquare {
                 if(nextVal<0)
                     break;
                 if(nextVal==0)
-                    return step;
+                    return step;//这里隐含了一个假设，就是数量最少的一定先遍历到0，所以直接就返回了
                 if(record[nextVal]==false){
                    queue.add(new Node(nextVal,step+1));
                    record[nextVal]=true;

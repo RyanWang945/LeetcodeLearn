@@ -60,4 +60,23 @@ public class _101isSymmetric {
             System.out.println(a);
         }
     }
+    boolean flag=true;
+    public boolean isSymmetric3(TreeNode root) {
+        dfs(root,root);
+        return flag;
+    }
+    private void dfs(TreeNode a,TreeNode b){
+        if(flag==false) return;
+        if(a==null&&b==null) return;
+        if(a==null||b==null){
+            flag=false;
+            return;
+        }
+        if(a.val!=b.val){
+            flag=false;
+            return;
+        }
+        dfs(a.left,b.right);
+        dfs(a.right,b.left);
+    }
 }

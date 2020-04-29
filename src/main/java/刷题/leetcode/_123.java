@@ -65,6 +65,13 @@ public class _123 {
         }
         return dp_i20;
     }
+
+    /**
+     * dp[i][k] means the largest profit at i-th day purchased k times
+     * in i-th day we can don't do  anything: dp[i][k]=dp[i-1][k]
+     * we can also sell the stock at i-th day,in this case we must buy the stock before i-th day
+     * 
+     */
     public int maxProfit4(int[] prices) {
         int n = prices.length;
         if (n == 0) return 0;

@@ -8,10 +8,13 @@ import org.junit.Test;
 import 刷题.leetcode._1twosum;
 import 子类父类测试.Car;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author Ryan
@@ -262,6 +265,10 @@ public class test {
         int a='.'-'0';
         System.out.println(a);
         Map<String,List<String>> map=new HashMap<>();
+        List<Integer> l=new ArrayList<>();
+        int[] ans=new int[10];
+        int[] ints = Arrays.copyOfRange(ans, 0, ans.length);
+
     }
 
     @Test
@@ -301,6 +308,27 @@ public class test {
         char c='a';
         String cs=String.valueOf(c);
     }
+    @Test
+    public void testScroll(){
+        JFrame f=new JFrame();
+
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setSize(800,600);
+        f.setVisible(true);
+        f.setResizable(false);
+        f.setLayout(new GridBagLayout());
+        f.add(new JScrollPane());
+    }
+    @Test
+    public void testT(){
+        TreeSet<Integer> set=new TreeSet<>();
+        set.add(1);
+        set.add(3);
+        set.add(2);
+        System.out.println(set.first());
+        System.out.println(set.last());
+    }
+
 }
 class Pair implements Comparable{
     int i;

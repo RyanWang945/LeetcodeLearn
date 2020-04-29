@@ -49,4 +49,26 @@ public class _14longestCommonPrefix {
         }
         return ans;
     }
+    public String longestCommonPrefix3(String[] strs) {
+        if(strs.length==0) return "";
+        String s=strs[0];
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            boolean flag=true;
+            for(String str:strs){
+                if(i>=str.length()){
+                    flag=false;
+                    break;
+                }
+                if(str.charAt(i)!=s.charAt(i)){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag==true)
+                sb.append(s.charAt(i));
+            else break;
+        }
+        return sb.toString();
+    }
 }
