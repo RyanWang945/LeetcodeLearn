@@ -52,4 +52,54 @@ public class QuickSort {
         nums[left]=temp;
         return left;
     }
+
+
+
+
+
+    public void quickSort4(int[] nums,int left, int right){
+        if(left<right){
+            int pos=partition(nums,left,right);
+            quickSort4(nums,left,pos-1);
+            quickSort4(nums,pos+1,right);
+        }
+    }
+    public int partition4(int[] nums,int left, int right){
+        int temp=nums[left];
+        while(left<right){
+            while(left<right&&nums[right]>temp) right--;
+            nums[left]=nums[right];
+            while(left<right&&nums[left]<temp) left++;
+            nums[right]=nums[left];
+        }
+        nums[left]=temp;
+        return left;
+    }
+    @Test
+    public void testQuickSort(){
+        int[] nums=new int[]{5,3,6,7,12,2,1,7};
+        quickSort4(nums,0,nums.length-1);
+        for(int  i:nums){
+            System.out.print(i+" ");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

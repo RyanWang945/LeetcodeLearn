@@ -1,6 +1,8 @@
 package 刷题.leetcode;
 
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
@@ -44,5 +46,23 @@ public class _239 {
             }
         }
         return result;
+    }
+    public int[] maxSlidingWindow3(int[] nums, int k) {
+        if(nums.length==0||nums==null) return new int[]{};
+        PriorityQueue<Integer> queue=new PriorityQueue<>(Comparator.reverseOrder());
+        int left=0,right=0;
+        int[] ans=new int[nums.length-k+1];
+        int index=0;
+        while(left<nums.length-k+1&&right<nums.length){
+            int a=nums[right++];
+            queue.add(a);
+            if(queue.size()>k){
+                int b=nums[left++];
+                queue.remove(b);
+            }
+            if(queue.size()==k)
+                ans[index++]=queue.peek();
+        }
+        return ans;
     }
 }

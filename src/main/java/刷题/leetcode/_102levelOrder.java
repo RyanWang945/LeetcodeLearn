@@ -87,4 +87,28 @@ public class _102levelOrder {
         helper(root,0);
         return levels;
     }
+
+    /**
+     *5月13号的bfs，用size的话会比较简洁
+     */
+    public List<List<Integer>> levelOrder4(TreeNode root) {
+        if(root==null) return new ArrayList<>();
+        List<List<Integer>> ans=new ArrayList<>();
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size=queue.size();
+            List<Integer>  temp=new ArrayList<>();
+            for(int i=0;i<size;i++){
+                TreeNode node=queue.poll();
+                temp.add(node.val);
+                if(node.left!=null)
+                    queue.offer(node.left);
+                if(node.right!=null)
+                    queue.offer(node.right);
+            }
+            ans.add(temp);
+        }
+        return ans;
+    }
 }

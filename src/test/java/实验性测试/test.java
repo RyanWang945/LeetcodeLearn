@@ -11,6 +11,8 @@ import 子类父类测试.Car;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -309,16 +311,17 @@ public class test {
         String cs=String.valueOf(c);
     }
     @Test
-    public void testScroll(){
-        JFrame f=new JFrame();
-
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(800,600);
-        f.setVisible(true);
-        f.setResizable(false);
-        f.setLayout(new GridBagLayout());
-        f.add(new JScrollPane());
+    public void testScroll() throws FileNotFoundException {
+        int x=3;
+        int y=4;
+        switch (x+3){
+            case 6: y=0;break;
+            case 7:y=1;break;
+            default: y+=1;
+        }
+        System.out.println(y);
     }
+
     @Test
     public void testT(){
         TreeSet<Integer> set=new TreeSet<>();
@@ -327,7 +330,9 @@ public class test {
         set.add(2);
         System.out.println(set.first());
         System.out.println(set.last());
+
     }
+
 
 }
 class Pair implements Comparable{
