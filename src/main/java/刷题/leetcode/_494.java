@@ -34,7 +34,8 @@ public class _494 {
         for(int i=1;i<nums.length;i++){
             for(int sum=-1000;sum<=1000;sum++){
                 if(dp[i-1][sum+1000]>0){
-                    dp[i][sum+nums[i]+1000]+=dp[i-1][sum+1000];
+                    //这里并不需要+=，但原先的+=了，第二个需要+=，是为了排除sum+nums[i]==sum-nums[i]的情况
+                    dp[i][sum+nums[i]+1000]=dp[i-1][sum+1000];
                     dp[i][sum-nums[i]+1000]+=dp[i-1][sum+1000];
                 }
             }

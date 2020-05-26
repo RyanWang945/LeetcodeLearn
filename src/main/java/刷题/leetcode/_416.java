@@ -44,7 +44,7 @@ public class _416 {
             dp[nums[0]]=true;
 
         for(int i=1;i<nums.length;i++){
-            for(int j=target;nums[i]<=j;j--){
+            for(int j=target;0<=j;j--){
                 if(dp[target]) return true;
                 dp[j]=dp[j]||dp[j-nums[i]];
             }
