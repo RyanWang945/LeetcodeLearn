@@ -55,6 +55,48 @@ public class MayTest {
     @Test
     public void test4(){
         char a='1';
-        System.out.println(Integer.valueOf(a));
+        //System.out.println(Integer.valueOf(a));
+        StringBuffer sb=new StringBuffer("");
+        System.out.println(sb.toString());
+    }
+    @Test
+    public void testMatch(){
+        String a="ab";
+        String b="bb";
+        System.out.println(a.compareTo(b));
+
+    }
+    @Test
+    public void test(){
+        Scanner sc=new Scanner(System.in);
+        int len = sc.nextInt();
+        String t=sc.nextLine();
+        Map<String,Integer> map=new HashMap<>();
+        String max="";
+        int time=0;
+        char[] chs=t.toCharArray();
+        for(int i=0;i<=chs.length-len;i++){
+            for(int j=i+len;j<=chs.length;i++){
+                String temp=t.substring(i,j);
+                map.put(temp,map.getOrDefault(temp,0)+1);
+            }
+        }
+        for(String s:map.keySet()){
+            if(map.get(s)>time){
+                time=map.get(s);
+                max=s;
+            }else if(map.get(s).equals(time)){
+                if(max.compareTo(s)>0){
+                    time=map.get(s);
+                    max=s;
+                }
+            }
+        }
+        System.out.println(max+" "+time);
+    }
+    @Test
+    public void testTreeMap(){
+        List<Integer> list=new ArrayList<>();
+        list.remove(list.size()-1);
     }
 }
