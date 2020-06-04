@@ -2,7 +2,6 @@ package 实验性测试;
 
 import algorithmnote.Bobblesort;
 import algorithmnote.InsertSort;
-import algorithmnote.PATB1001;
 import algorithmnote.ShellSort;
 import org.junit.Test;
 import 刷题.leetcode._1twosum;
@@ -35,9 +34,6 @@ public class test {
     }
     @Test
     public void test_PATB1001(){
-        int a=100;
-        PATB1001 test=new PATB1001();
-        System.out.println(test.callatz(a));
     }
     @Test
     public void test_PATB1032(){
