@@ -73,11 +73,12 @@ public class _1248 {
                     preEven=0;
                 }
             }
+            //这一步很关键，因为最后一个奇数之后再没有奇数了，就不会在添加进list了。
             list.add(preEven+1);
             // list.forEach(o-> System.out.println(o));
             int count=0;
             for (int i=0;i<list.size()-k;i++){
-                count+=(list.get(i)*list.get(i+k));
+                count+=list.get(i)*list.get(i+k);
             }
             return count;
         }

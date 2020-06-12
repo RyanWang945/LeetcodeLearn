@@ -8,6 +8,17 @@ import java.util.Map;
  * @date 2020/4/29 18:46
  */
 public class _76 {
+    /**
+     * 这里面有个值得注意的问题，为什么
+     * if(right-left<ans){
+     *    ans=right-left;
+     *    start=left;
+     * }
+     * 一定要放在while(valid==need.size())里判断？
+     * 因为在外面判断的话可能出现这样一种情况，left++后valid并没有减，也就是说
+     * 窗口内内容合法，但是长度更短了，是更好的答案，可是这时没能更新答案
+     * 所以在窗口缩小的过程中也要时刻判断窗口内内容是否符合。
+     */
     public String minWindow(String s, String t) {
         Map<Character,Integer> window=new HashMap<>();
         Map<Character,Integer> need=new HashMap<>();

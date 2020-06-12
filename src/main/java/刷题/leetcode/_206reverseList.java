@@ -16,4 +16,20 @@ public class _206reverseList {
         }
         return prev;
     }
+
+    /**
+     *这个版本是最浅显易懂的
+     */
+    public ListNode reverseList2(ListNode head) {
+        ListNode dummy=new ListNode(-1);
+        dummy.next=null;
+        while(head!=null){
+            ListNode temp=dummy.next;
+            ListNode next=head.next;
+            dummy.next=head;
+            head.next=temp;
+            head=next;
+        }
+        return dummy.next;
+    }
 }

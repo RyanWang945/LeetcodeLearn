@@ -1,8 +1,7 @@
 package algorithmnote.并查集模板;
 
 /**
- * @author Ryan
- * @date 2020/6/2 9:43
+ * 很多时候并查集的rank并不一定指的是树的深度，也可能指的是树的大小
  */
 public class UnionFindDemo {
 }
