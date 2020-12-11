@@ -36,7 +36,7 @@ public class Dijkstra {
             int minIndex=1;
             //遍历所有节点，找到离K最近的节点
             for(int j=1;j<=N;j++){
-                if(!visited[j]&&distance[j]!=-1&distance[j]<minDis){
+                if(!visited[j]&&distance[j]!=-1&&distance[j]<minDis){
                     minDis=distance[j];
                     minIndex=j;
                 }

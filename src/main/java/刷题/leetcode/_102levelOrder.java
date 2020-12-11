@@ -111,4 +111,26 @@ public class _102levelOrder {
         }
         return ans;
     }
+
+    /**
+     * dfs版本的层序遍历
+     */
+    List<List<Integer>> ans=new ArrayList<>();
+    public List<List<Integer>> levelOrder5(TreeNode root) {
+        if(root==null) return ans;
+        dfs(1,root);
+        return ans;
+    }
+    private void dfs(int index,TreeNode root){
+        if(ans.size()<index){
+            ans.add(new ArrayList<>());
+        }
+        ans.get(index-1).add(root.val);
+        if(root.left!=null){
+            dfs(index+1,root.left);
+        }
+        if(root.right!=null){
+            dfs(index+1,root.right);
+        }
+    }
 }

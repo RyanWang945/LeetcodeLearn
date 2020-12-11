@@ -5,17 +5,17 @@ package 刷题.leetcode;
  * @date 2020/3/10 9:22
  */
 public class _543diameterOfBinaryTree {
-    int ans;
+    int maxLen=0;
     public int diameterOfBinaryTree(TreeNode root) {
-        ans=1;
-        depth(root);
-        return ans-1;
+        if(root==null||(root.left==null&&root.right==null)) return 0;
+        dfs(root);
+        return maxLen-1;
     }
-    public int depth(TreeNode node){
-        if(node==null) return 0;
-        int L=depth(node.left);
-        int R=depth(node.right);
-        ans=Math.max(ans,L+R+1);
-        return Math.max(L,R)+1;
+    private int dfs(TreeNode root){
+        if(root==null) return 0;
+        int left=dfs(root.left);
+        int right=dfs(root.right);
+        maxLen=Math.max(maxLen,left+right+1);
+        return Math.max(left,right)+1;
     }
 }

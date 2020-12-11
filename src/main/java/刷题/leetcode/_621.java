@@ -8,10 +8,11 @@ import java.util.*;
  */
 public class _621 {
     public int leastInterval(char[] tasks, int n) {
-        int[] map = new int[26];
+        Integer[] map = new Integer[26];
         for (char c: tasks)
             map[c - 'A']++;
         Arrays.sort(map);
+        Arrays.sort(map,(o1,o2)->o2-o1);
         int time = 0;
         while (map[25] > 0) {
             int i = 0;

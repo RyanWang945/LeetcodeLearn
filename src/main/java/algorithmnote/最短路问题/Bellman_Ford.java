@@ -7,12 +7,12 @@ import java.util.Arrays;
  * @date 2020/6/4 21:33
  */
 public class Bellman_Ford {
+    int inf=(int)1e8+7;
     public int networkDelayTime(int[][] times, int N, int K) {
         // 存放 K 到各个点的最短路径，最大的那个最短路径即为结果
         int[] distance = new int[N + 1];
-        Arrays.fill(distance, -1);
+        Arrays.fill(distance, inf);
         distance[K] = 0;
-
         // 进行 N-1 轮的松弛，因为任意两点间的最短路径最多包含 N-1 条边
         for (int i = 1; i <= N - 1; i++) {
             for (int[] time : times) {
@@ -23,8 +23,8 @@ public class Bellman_Ford {
                 // 一个信号源从源节点到目标节点的时间
                 int w = time[2];
                 // 判断能否通过 u->v 缩短 distance[v]（松弛）
-                if (distance[u] != -1) {
-                    if (distance[v] == -1) {
+                if (distance[u] != inf) {
+                    if (distance[v] == inf) {
                         distance[v] = distance[u] + w;
                     } else {
                         distance[v] = Math.min(distance[v], distance[u] + w);

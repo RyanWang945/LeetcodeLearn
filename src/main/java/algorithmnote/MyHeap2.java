@@ -34,16 +34,16 @@ public class MyHeap2 {
         nums[a]=nums[b];
         nums[b]=temp;
     }
-    private void build_heap(int[] nums,int n){
-        int last_node=n-1;
+    private void build_heap(int[] nums){
+        int last_node=nums.length-1;
         int parent=(last_node-1)/2;
         int i;
         for(i=parent;i>=0;i--){
-            heapify(nums,n,i);
+            heapify(nums,nums.length,i);
         }
     }
     private void heap_sort(int[] nums,int n){
-        build_heap(nums,n);
+        build_heap(nums);
         int i;
         for(i=n-1;i>=0;i--){
             swap(nums,0,i);
@@ -76,7 +76,7 @@ public class MyHeap2 {
     public void test_buildheap(){
         int[] tree={2,5,3,1,10,4};
         int n=6;
-        build_heap(tree,n);
+        build_heap(tree);
         for(int i :tree){
             System.out.println(i);
         }
